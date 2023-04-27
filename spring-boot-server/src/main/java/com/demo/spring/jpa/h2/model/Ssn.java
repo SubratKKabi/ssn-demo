@@ -10,6 +10,10 @@ public class Ssn {
 	@GeneratedValue(strategy = GenerationType.AUTO)
 	private long id;
 
+	public void setId(long id) {
+		this.id = id;
+	}
+
 	@Column(name = "ssn")
 	private String ssn;
 
