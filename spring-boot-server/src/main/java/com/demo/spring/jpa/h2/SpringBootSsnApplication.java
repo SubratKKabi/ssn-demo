@@ -4,7 +4,7 @@ import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.context.annotation.ComponentScan;
 
-@SpringBootApplication
+@SpringBootApplicationn
 @ComponentScan(basePackages = {"com.demo.spring"})
 public class SpringBootSsnApplication {
 
