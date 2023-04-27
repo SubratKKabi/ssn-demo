@@ -1,0 +1,65 @@
+
+<div class="m-3">
+  <form [formGroup]="ssnSample">
+    <div class="col-md-6">
+      <label for="exampleFormControlInput1" class="form-label">Social Security #</label>
+      <input 
+        [type]="getSSNType()"
+        class="form-control"
+        [ngClass]="(ssn && ssn.invalid) ? 'is-invalid' : ''"
+        placeholder="000-00-0000"
+        formControlName="ssn"
+        inputmode="numeric"
+        [maxlength]=maxSSNInput
+        (input)="inputSSN()">
+        <div *ngIf="ssn && ssn.invalid" class="invalid-feedback">
+          Please enter a valid 9 digit SSN.
+        </div>
+      <!--  <div [ngStyle]="{'color':'green'}">{{result}} </div>-->
+      <div [ngStyle]="{'color':'black'}">{{result}} </div>
+       
+      <div class="form-check mt-1">
+        <input 
+          class="form-check-input"
+          type="checkbox"
+          (change)="toggleSSNValue()">
+        <label class="form-check-label" for="flexCheckDefault">
+          show SSN
+        </label>
+
+      </div>
+      <div class="input-group-append">
+        <button class="btn btn-outline-secondary"(click)="saveSSN()">Validate</button>
+        </div>
+    </div>
+  </form> 
+  <br/>
+  <div class="col-md-6">
+
+  <div class="col-md-10">
+    <h6>To see the List of Validated SSN</h6>
+    <button
+    class="btn btn-outline-secondary"
+    (click)="retrieveSsns()"
+  > Show All
+  </button>
+  <button class="m-3 btn btn-sm btn-danger" (click)="removeAllSsns()">
+    Remove All
+  </button>
+    <h6>Validated SSN List:</h6>
+    <ul class="list-group">
+      <li
+        class="list-group-item"
+        *ngFor="let ssn of ssns; let i = index"
+        [class.active]="i == currentIndex"
+        (click)="setActiveSsn(ssn, i)"
+      >
+        {{ ssn.ssn }}
+      </li>
+    </ul>
+
+   
+  </div>
+</div>
+
+
