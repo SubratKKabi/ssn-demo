@@ -9,9 +9,6 @@ import org.springframework.stereotype.Service;
 @Service
 public class SsnCheckService {
 
-
-
-	 
 	    // Function to validate
 	    // SSN (Social Security Number).
 	    public  Map<String,String> isValidSSN(String str)
@@ -20,7 +17,7 @@ public class SsnCheckService {
 	        // Regex to check SSN
 	        // (Social Security Number).
 	        String regex = "^(?!666|000|9\\d{2})\\d{3}"
-	                       + "-(?!00)\\d{2}-"
+	                       + "\\.(?!00)\\d{2}\\."
 	                       +"(?!0{4})\\d{4}$";
 	 
 	        // Compile the ReGex

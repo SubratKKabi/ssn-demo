@@ -57,6 +57,7 @@ public class SsnController {
 			List<String> result  = new ArrayList<String>();
 			HashMap<String,String> ssnValidCheck = (HashMap<String, String>) ssnCheckService.isValidSSN(ssn.getSsn());
 			if(ssnValidCheck.containsKey("true")) {
+				ssn.setId(1);
 				ssnRepository.save(new Ssn(ssn.getSsn()));	
 				result.add(ssnValidCheck.get("true"));
 			return new ResponseEntity<>(result, HttpStatus.OK);
@@ -65,7 +66,7 @@ public class SsnController {
 				return new ResponseEntity<>(result, HttpStatus.OK);
 			}
 		} catch (Exception e) {
-			return new ResponseEntity<>(null, HttpStatus.INTERNAL_SERVER_ERROR);
+						return new ResponseEntity<>(null, HttpStatus.INTERNAL_SERVER_ERROR);
 		}
 	}
 	
